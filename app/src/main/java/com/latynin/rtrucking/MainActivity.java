@@ -53,37 +53,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_reg = (Button)findViewById(R.id.reg);
         btn_make = (Button)findViewById(R.id.createBid);
 
-        public void OnClick(View view){
-            if (view.getId() == R.id.Enter){
-                signi(EtMail.getText().toString(), EtPassword.getText().toString());
+    }
+    public void signi(String mail, String password){
+        mAuth.signInWithEmailAndPassword(mail, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+
+                }
+                else{
+                    Toast.makeText(MainActivity.this,"Неправильно введен логин или пароль",Toast.LENGTH_SHORT).show();
+                }
 
             }
-            else if (view.getId() == R.id.reg){
-
-            }
-            else if (view.getId()==R.id.createBid){
-
-            }
-
-            public void signi(String mail, String password){
-                mAuth.signInWithEmailAndPassword(mail, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
-
-                        }
-                        else{
-                            Toast.makeText(MainActivity.this,"Неправильно введен логин или пароль",Toast.LENGTH_SHORT).show();
-                        }
-
-                    }
-                })
-    }
+        });
     }
 
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.Enter) {
+            signi(EtMail.getText().toString(), EtPassword.getText().toString());
 
+        } else if (v.getId() == R.id.reg) {
 
+        } else if (v.getId() == R.id.createBid) {
+
+        }
     }
-
-
 }
+
