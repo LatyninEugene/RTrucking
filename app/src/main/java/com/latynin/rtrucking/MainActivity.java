@@ -20,11 +20,6 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_sign;
 
 
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-        }
+        };
         EtMail = (EditText)findViewById(R.id.mail);
         EtPassword = (EditText)findViewById(R.id.pass);
         btn_sign = (Button)findViewById(R.id.Enter);
